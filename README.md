@@ -1,8 +1,27 @@
-# Ultimate PDF Toolkit Pro
+# Ultimate PDF Toolkit Pro - Code Installation
 
-A comprehensive, all-in-one desktop application built with Python and Tkinter for managing, manipulating, and converting PDF and Word documents. It features a modern, dark-themed, DPI-aware interface designed for maximum productivity.
+This folder (`Code_Installation`) contains all the necessary source code, scripts, and configuration files to build the Ultimate PDF Toolkit Pro from scratch. 
 
-## 🚀 Features
+Once compiled using the provided batch file, the generated setup installer (`Ultimate_PDF_Toolkit_Pro_Setup.exe`) will be created **directly in this folder**, as well as copied into the `Executable_Packages` directory. After installing the package via the setup installer, the application will stay on the PC forever (in your AppData/Start Menu), and you won't need to work with the setup `.exe` file again.
+
+---
+
+## 📂 Purpose of Every Single File in this Folder
+
+| File Name | Purpose | Do You Need to Keep It? |
+| :--- | :--- | :--- |
+| **`Ultimate_PDF_Toolkit_Pro.py`** | The main Python source code containing all features (PDF/Word merge, split, convert, encrypt, OCR/preview). | ✅ **YES** — The core code. |
+| **`setup_wizard.py`** | The Python source code that designs the Graphical Setup Wizard window. This wraps the core app into a beautiful installer. | ✅ **YES** — The installer code. |
+| **`build_installer.bat`** | 1-Click Windows batch script. When you make changes to the code and double-click this script, it automatically recompiles everything into `Ultimate_PDF_Toolkit_Pro_Setup.exe` right in this same folder. It also places a copy in the `Executable_Packages` folder. | ✅ **YES** — Build tool. |
+| **`requirements.txt`** | Lists the required Python libraries needed to build and run the app from source. | ✅ **YES** — Dependency list. |
+| **`README.md` & `README.txt`** | The complete user manual, feature breakdown, and installation guide. | ✅ **YES** — Documentation. |
+| **`.gitignore`** | Tells Git to ignore temporary compiler caches and large binaries when pushing to GitHub or other repositories. | ✅ **YES** — Git configuration. |
+
+*(Note: During the build process, you will also see the generated `.exe` file appear in this folder).*
+
+---
+
+## 🚀 Features of the Application
 
 - **Organize PDF**: Add a PDF, view pages, remove unwanted pages, or reorder them.
 - **Merge PDF**: Combine multiple PDF files into a single document.
@@ -16,46 +35,43 @@ A comprehensive, all-in-one desktop application built with Python and Tkinter fo
 - **Annotate & Extract**: Extract embedded text from a PDF, or search and highlight specific keywords across the entire document.
 - **Live Preview**: Click the "Preview PDF" button on any tab to view the PDF right inside the application.
 
-## 📋 Requirements
+---
 
-This application relies on the following Python packages:
-- `pymupdf` (for PDF viewing, image extraction, and highlighting)
-- `pypdf` (for merging, splitting, rotating, and encrypting)
-- `Pillow` (for image processing)
-- `pdf2docx` (for PDF to Word conversion)
-- `python-pptx` (for PDF to PowerPoint conversion)
-- `pywin32` (for Word to Word merging and Word to PDF conversion on Windows)
+## 🛠️ Developer Guide (Compiling & Building From Source)
 
-## 🛠️ Installation & Setup
+If you modify the Python code and want to create a new installer:
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/yourusername/Ultimate-PDF-Toolkit-Pro.git
-   cd Ultimate-PDF-Toolkit-Pro
-   ```
-
-2. **Install dependencies:**
-   Make sure you have Python installed, then run:
-   ```bash
+1. **Test the app directly from code:**
+   ```cmd
    pip install -r requirements.txt
+   python Ultimate_PDF_Toolkit_Pro.py
    ```
 
-3. **Run the script directly:**
-   ```bash
-   python "PDF, Word file merger.py"
-   ```
+2. **Rebuild the Setup Wizard Installer package (.exe):**
+   - Double-click **`build_installer.bat`**.
+   - It will compile the source code and automatically create the updated **`Ultimate_PDF_Toolkit_Pro_Setup.exe`** directly in **this Code_Installation directory**.
+   - It will also automatically organize the portable app and installer into the `..\Executable_Packages` folder.
 
-## 📦 Building the Executable (.exe)
+---
 
-If you want to package the application into a standalone `.exe` file that can be shared and run without installing Python:
+## 💻 How to Install (Sits on Your Computer Forever)
 
-1. Double-click the provided `build_exe.bat` script.
-2. Wait for the compilation to finish.
-3. Your executable will be available in the `dist/` folder.
+If you just want to use the application without dealing with code, go to the **`Executable_Packages\Installer_Version`** folder or run the `.exe` generated in this folder:
 
-*(Note: Depending on your system, Windows Defender might temporarily flag newly created PyInstaller executables. This is a common false-positive).*
+1. Double-click **`Ultimate_PDF_Toolkit_Pro_Setup.exe`**.
+2. In the Setup Wizard, choose your options (Desktop Shortcut, Start Menu Search, App Registration) and click **"Install Now"**.
+3. Click **"Finish"**.
 
-## ⚠️ Notes
+**Once Installed (Just like WhatsApp or Word):**
+- Launch from your **Desktop** icon.
+- Press the **Windows Key**, type **"Ultimate PDF Toolkit Pro"**, and press **Enter**.
+- It sits on your PC forever. You do not need to run the installer again.
+- Uninstall anytime via **Windows Settings > Apps > Installed apps**.
 
-- **Word automation features** (Merging Word documents and converting Word to PDF) require Microsoft Word to be installed on the host Windows machine, as it utilizes the `pywin32` COM interface.
-- **DPI Awareness** is enabled by default to ensure fonts look sharp on high-resolution Windows displays.
+---
+
+## 🌐 GitHub / Repository Usage
+
+If you plan to upload this to GitHub:
+- Upload the `Code_Installation` directory.
+- The included `.gitignore` will ensure that compiled binaries (like `.exe` files or `build/` folders) are excluded, keeping your repository clean and purely code-based.
