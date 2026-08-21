@@ -1,6 +1,0 @@
-pymupdf
-pypdf
-Pillow
-pdf2docx
-python-pptx
-pywin32
